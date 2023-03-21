@@ -99,9 +99,159 @@
 	</ul>
 
     <div class="box beschreibung">
-			<center>
-					<img class="fachlogo" src="../images/ITA-Arduino.png" alt="ITA - Arduino">
-			</center>
+			<div class="wrapper">
+				<div class="box home1">
+		      <h1><center>DHT22</center></h1>
+					<img src="DHT22.jpg" alt="DHT22">
+		    </div>
+				<div class="box home2">
+					<h1><center>DS18B20</center></h1>
+					<img src="DS18B20.jpg" alt="DS18B20">
+			</div>
+		</div>
+	    <div class="box beschreibung">
+      <h1>DHT22 - Die Beschreibung</h1>
+      <p>
+				Sensoren zur Messung der Luftfeuchtigkeit sind oft nicht gerade billig. Ein recht
+				preiswerter und einfach verwendbarer Sensor ist der DHT22.
+				Der DHT22 ist ein zuverlässiger Sensor zum ermitteln von Temperatur und Luftfeuchtigkeit.
+				Da der Sensor sowohl mit 3,3V als auch 5V betrieben werden kann, eignet er sich zum Anschluss
+				an alle gängige Boards wie Arduino, RN-Control, Raspberry Pi und alle anderen Microcontroller.
+				Neben der Betriebsspannung muss lediglich ein Port mit dem Sensor verbunden werden. Die
+				Ausgabe erfolgt seriell als digitale Bitfolge. Somit eignet sich der Sensor ideal um das
+				Raumklima zu überwachen oder eine Wetterstation aufzubauen.
+      </p>
+			<p><h1>Technische Daten</h1></p>
+			<ul>
+				<li>Digital Temperatur und Luftfeuchtigkeit ermitteln</li>
+				<li>Chip Typ DHT22</li>
+				<li>Betriebsspannung: DC 3,3 - 5V</li>
+				<li>Luftfeuchtigkeitsmessbereich: 0 bis 100% relative Luftfeuchtigkeit</li>
+				<li>Feuchtemessgenauigkeit: &pm; 2% RH</li>
+				<li>Temperaturbereich: -40 bis +80 &ring;C</li>
+				<li>Temperaturmessgenauigkeit: &pm; 0,5 &ring;C</li>
+				<li>Single-Bus-Digigtalsignalausgang, bidirektionale serielle Daten</li>
+				<li>zahlreiche Beispielprogramme für gängige Boards im Internet verfügbar</li>
+				<li>Maße (HxBxT): 28mm x 12mm x 10mm</li>
+			</ul>
+    </div>
+		<div class="box">
+			<img src="../images/DHT22-PinBelegung.jpg" alt="DHT22-PinBelegung">
+		</div>
+		<div class="box sketch1">
+      <h1>DHT22 - Der Sketch</h1>
+				<p> </p>
+				<p>(01) - #include "DHT.h"</p>
+				<p>(02) - #define DHTPIN 2</p>
+				<p>(03) - #define DHTTYPE DHT22</p>
+				<p>(04) - DHT dht(DHTPIN, DHTTYPE);</p>
+				<p>(05) - void setup() {</p>
+				<p>(06) - Serial.begin(9600);</p>
+				<p>(07) - dht.begin();</p>
+				<p>(08) - }</p>
+				<p>(09) - void loop() {</p>
+				<p>(10) - delay(2000);</p>
+				<p>(11) - float luftfeuchtigkeit = dht.readHumidity();</p>
+				<p>(12) - float temperatur = dht.readTemperature();//</p>
+				<p>(13) - Serial.print("Luftfeuchtigkeit: ");</p>
+				<p>(14) - Serial.print(luftfeuchtigkeit);</p>
+				<p>(15) - Serial.println(" %");</p>
+				<p>(16) - Serial.print("Temperatur: ");</p>
+				<p>(17) - Serial.print(temperatur);</p>
+				<p>(18) - Serial.println(" Grad Celsius");</p>
+				<p>(19) - }</p>
+    </div>
+		<div class=" box sketch2">
+				<p>Zeile 01: DHT Bibliothek wird geladen.</p>
+				<p>Zeile 02: Der Sensor wird an Pin 2 angeschlossen</p>
+				<p>Zeile 03: Es handelt sich um den DHT22 Sensor</p>
+				<p>Zeile 04: Der Sensor wird ab jetzt mit "dht" angesprochen</p>
+				<p>Zeile 05: Beginn des Setup-Bereichs</p>
+				<p>Zeile 06: Serielle Verbindung starten mit der Übertragungsrate von 9600 Baut</p>
+				<p>Zeile 07: DHT22 Sensor starten</p>
+				<p>Zeile 08: Ende des Setup-Bereichs</p>
+				<p>Zeile 09: Beginn des Loop-Bereichs</p>
+				<p>Zeile 10: Zwei Sekunden Vorlaufzeit bis zur Messung ( Der Sensor ist ein wenig träge )</p>
+				<p>Zeile 11: Die Luftfeuchtigkeit auslesen und unter "luftfeuchtigkeit" speichern</p>
+				<p>Zeile 12: Die Temperatur auslesen und unter „Temperatur“ speichern</p>
+				<p>Zeile 13: Ausgabe Serieller Monitor: string("Luftfeuchtigkeit: ")</p>
+				<p>Zeile 14: Ausgabe Serieller Monitor: variable(luftfeuchtigkeit)</p>
+				<p>Zeile 15: Ausgabe Serieller Monitor: string(" %")</p>
+				<p>Zeile 16: Ausgabe Serieller Monitor: string("Temperatur")</p>
+				<p>Zeile 17: Ausgabe Serieller Monitor: variable(temperatur)</p>
+				<p>Zeile 18: Ausgabe Serieller Monitor: string(" Grad Celsius")</p>
+				<p>Zeile 19: Ende des Loop-Bereichs</p>
+		</div>
+		<div class="box beschreibung">
+      <h1>DS18B20</h1>
+			<p>Der DS18B20 digitale Temperatursensor ist ein Sensor, der über den sogenannten
+			1-Wire Bus Daten überträgt. Wie der Name schon sagt, wird für die Kommunikation nur
+			eine Leitung benötigt (und GND). Um die einzelnen Sensoren identifizieren zu können, ist
+			in jedem Sensor eine eindeutige 64-Bit Adresse  auf dem ROM gespeichert. Für die 1-Wire
+			Kommunikation kann ein beliebiger digitaler Input Pin verwendet werden, auf dem mit einem
+			 4.7k&Omega; pull-up Widerstand das Potenzial hochgezogen ist. (Der interne Pull-up Widerstand
+			 reicht nicht aus). Um den Sensor verwenden zu können, wird die OnWire und die Dallas Temperatur
+			 Library benötigt. Diese ermöglicht es uns einen Alarm für eine Temperatur Unter- oder
+			 Überschreitung zu setzen. Dieses Alarm Bit wird bei jeder Temperatur Messung neu bewertet.
+		</p>
+		<p><h1>Technische Daten</h1></p>
+		<ul>
+			<li>Betriebsspannung: 3.0 bis 5.5V</li>
+			<li>Genauigkeit Temperatur: &pm; 0.5&ring;C bis &pm; 0.0625 &ring;C</li>
+			<li>Messbereich Temperatur: -55 bis +125 &ring;C</li>
+			<li>Schnittstelle: 1-Wire Bus</li>
+			<li>Ausführungen: TO-92, SO 150 mil., &mu;SOP</li>
+			<li>Adresse: 64-Bit Serien Nummer im ROM</li>
+			<li>9-bit bis 12-bit Messauflösung frei wählbar</li>
+		</ul>
+    </div>
+		<div class="box">
+			<img src="../images/DS18B20-Anschluss.jpg" alt="DS18B20-Anschluss">
+			<img src="../images/DS18B20-Anschlussbelegung.jpg" alt="DS18B20-Anschlussbelegung">
+		</div>
+	<div class="box sketch1">
+      <h1>DS18B20 - Der Sketch</h1>
+					<p>01 - #include &lt;DallasTemperature.h&gt;</p>
+					<p>02 - #include &lt;OneWire.h&gt;</p>
+					<p>03 - #define LKTemp2 4</p>
+					<p>04 - OneWire oneWire(LKTemp2);</p>
+					<p>05 - DallasTemperature sensors(&oneWire);</p>
+					<p>06 - void setup()</p>
+					<p>07 - {</p>
+					<p>08 - Serial.begin(9600);</p>
+					<p>09 - Serial.println("LK-Temp2 Temperaturmessung");</p>
+					<p>10 - sensors.begin(); // Sensor wird initialisiert</p>
+					<p>11 - }</p>
+					<p>12 - void loop()</p>
+					<p>13 - {</p>
+					<p>14 - sensors.requestTemperatures();</p>
+					<p>15 - Serial.print("Temperatur: ");</p>
+					<p>16 - Serial.print(sensors.getTempCByIndex(0));</p>
+					<p>17 - Serial.println(" C");</p>
+					<p>18 - delay(1000);</p>
+					<p>19 - }</p>
+    </div>
+		<div class="box sketch2">
+			<p>Zeile 01 & 02: Benötigte Libraries werden importiert</p>
+			<p>Zeile 01: Library führt die Messung durch</p>
+			<p>Zeile 02: Library für den one-wire Datenbus</p>
+			<p>Zeile 03: Hier wird der Eingangs-Pin deklariert, an dem das Sensor-Modul angeschlossen ist.</p>
+			<p>Zeile 04 & 05: Libraries werden konfiguriert</p>
+			<p>Zeile 04: Erzeugt das Objekt oneWire…</p>
+			<p>Zeile 05: …und übergibt es an das Objekt „sensors“</p>
+			<p>Zeile 06 & 07: Beginn des Setup-Bereichs</p>
+			<p>Zeile 08: Initialisierung der seriellen Ausgabe</p>
+			<p>Zeile 09: Ausgabe Serieller Monitor: string("LK-Temp2 Temperaturmessung")</p>
+			<p>Zeile 10: Sensor wird initialisiert</p>
+			<p>Zeile 11: Ende des Setup-Bereichs</p>
+			<p>Zeile 12 & 13: Beginn des Loop-Bereichs</p>
+			<p>Zeile 14: Temperaturmessung wird gestartet...</p>
+			<p>Zeile 15: ... und gemessene Temperatur ausgeben</p>
+			<p>Zeile 16: liest den 1. Sensor aus</p>
+			<p>Zeile 17: Ausgabe Serieller Monitor: string(" C")</p>
+			<p>Zeile 18: 1s Pause bis zur nächsten Messung</p>
+			<p>Zeile 19: Loop-Bereichs</p>
+		</div>
     </div>
 		<div class="box sketch2">
 
