@@ -183,3 +183,68 @@ a:hover:not(.activ) {
   margin-top: 20%;
   margin-left: 50%;
 }
+
+body {
+  margin: 0;
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #D0D0D0;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+  color: black;
+  padding: 10px 0 10px 15px;
+  text-decoration: none;
+}
+
+li a.activ {
+  background-color: #500000;
+  color: white;
+}
+
+
+li a:hover:not(.activ) {
+  background-color: #777;
+  color: white;
+}
+
+.box {
+  margin-top: 6%;
+  width: 500px;
+  height: 500px;
+  float: left;
+}
+.home1 {
+  margin-left: 27%;
+  border: 3px solid #000;
+}
+
+.home2 {
+  left: 500px;
+  border: 3px solid #000;
+}
+
+.sketch1, .beschreibung{
+  margin-left: 27%;
+  margin-top: 106px;
+  width: 500px;
+  height: 500px;
+}
+
+.sketch2 {
+  margin-top: 170px;
+}
+
+#myPic {
+  width: 400px;
+  margin-left: 50px;
+}
