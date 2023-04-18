@@ -99,8 +99,57 @@
 	</ul>
 
     <div class="box beschreibung">
-			<center>
-					<img class="fachlogo" src="../images/ITA-Arduino.png" alt="ITA - Arduino">
+	    <h1>Kontrollstruktur if:</h1>
+	    <h2>Syntax:</h2>
+	    <p><code>
+		    
+		if (Bedingung)<br>
+
+		{<br>
+
+		    Auszuführender Code<br>
+
+		}<br>
+
+		else<br>
+
+		{<br>
+
+		    Auszuführender Code<br>
+
+		}<br>
+		    </code></p>
+					
+
+	    <p><h3>Funktionsweise:</h3>
+	    
+		Die Kontrollstruktur if wird ,wie jeder andere Code auch, von oben nach unten abgearbeitet. 
+	    	Es wird sich die erste Bedingung in der Struktur angesehen ist diese richtig also "True" 
+	    	wird der dahinter in geschweiften Klammern stehende Code abgearbeitet und der Rest der 
+	    	Kontrollstruktur danach übersprungen. Ist die Bedingung falsch also "False" wird dieser 
+	    	Zweig übersprungen und der nächste Zweig wird untersucht. In diesem Fall ist der nächste 
+	    	Zweig der "else"-Zweig und er beinhaltet alle Fälle die vorher nicht aufgeführt waren.
+		Hier in diesem Fall haben wir nur zwei Möglichkeiten eine Entscheidung zu treffen. 
+	    	Es gibt aber noch die Möglichkeit dies zu vervielfältigen, indem man hinter dem ersten 
+	    	if-Statement ein "else if"-Statement einfügt. Dieser Zweig sieht genauso aus wie ein 
+	    	if-Statement nur das dort "else if" geschieben steht. "else if"-Statements können 
+	    	soviele eingefügt werden wie man möchte.
+	    </p>
+
+		<p><h3>Vergleichsoperatoren:</h3>
+		x == y (x ist gleich y)<br>
+		x != y (x ist nicht gleich y)<br>
+		x < y (x ist kleiner als y)<br>
+		x > y (x ist größer als y)<br>
+		x <= y (x ist kleiner als oder gleich zu y)<br>
+		x >= y (x ist größer als oder gleich zu y)<br>
+		</p>
+		
+		<p><h3>Bool'sche Operatoren:</h3>
+		&&        (and)<br>
+		||            (or)<br>
+		!            (not)<br>
+		</p>
 			</center>
     </div>
 		<div class="box sketch2">
